@@ -15,7 +15,7 @@ class Septa:  # pylint: disable=too-few-public-methods
     __slots__ = ("client", "log", "regional_rail", "bus_and_trolley")
 
     def __init__(self):
-        self.client = (Client(),)
+        self.client = Client()
         self.log = getLogger()
 
         self.regional_rail = RegionalRail(client=self.client, log=self.log)

@@ -9,6 +9,7 @@ from mcp_septa.septa import Septa
 mcp = FastMCP("mcp-septa")
 septa = Septa()
 
+
 @mcp.tool(
     name="get_septa_bus_or_trolley_locations_by_route_number",
     description="""
@@ -23,8 +24,8 @@ septa = Septa()
         "destructiveHint": False,
     },
 )
-async def get_location_by_route_number(route_number: int) -> list[Location]:
-    """Given a route number for a bus or trolley, return the 
+def get_location_by_route_number(route_number: int) -> list[Location]:
+    """Given a route number for a bus or trolley, return the
     locations of all currently running buses or trolleys.
 
     Args:
@@ -33,10 +34,10 @@ async def get_location_by_route_number(route_number: int) -> list[Location]:
     Returns:
         list[Location]:             A list of locations for the given route number.
     """
-    
+
     return septa.bus_and_trolley.get_location_by_route_number(route_number=route_number)
 
 
 def main():
     """Main function for running the MCP server."""
-    mcp.run(transport="streamable-http")
+    mcp.run(transport="stdio")

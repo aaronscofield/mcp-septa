@@ -3,7 +3,11 @@
 from logging import Logger
 from httpx import Client
 
-from mcp_septa.models.regional_rail import RegionalRailStation, Train, NextToArriveResult
+from mcp_septa.models.regional_rail import (
+    RegionalRailStation,
+    Train,
+    NextToArriveResult,
+)
 
 
 class RegionalRail:
